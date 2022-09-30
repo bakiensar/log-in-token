@@ -8,7 +8,7 @@ import Register from './pages/logout'
 import useApi from './hooks/useApi'
 
 import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom'
-import Category from './pages/home/component/category'
+import CategoryDetail from './pages/category_detail'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="logout" element={<Register />} />
-          <Route path="category/:slug" element={<Category />} />
+          <Route path="category/:slug" element={<CategoryDetail />} />
         </Routes>
       </HashRouter>
       <Footer />

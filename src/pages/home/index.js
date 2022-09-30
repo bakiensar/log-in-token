@@ -22,7 +22,7 @@ const Home = () => {
     <main>
       <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
         {categories.map((category) => {
-          return <Category category={category} />
+          return <Category categoryProp={category} />
         })}
       </div>
 
