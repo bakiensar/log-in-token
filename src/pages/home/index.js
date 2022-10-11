@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import useApi from '../../hooks/useApi'
 import Category from './component/category'
+import { connect } from 'react-redux'
+import { setToken } from '../../redux/reducers/authReducer'
 
-const Home = () => {
+const Home = ({ authState }) => {
   const [categories, setCategories] = useState([])
   const api = useApi()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     api
@@ -18,6 +22,16 @@ const Home = () => {
       })
   }, [])
 
+  const onChange = (e) => {
+    setToken(dispatch, e.target.value)
+    // dispatch({
+    //   type: 'set_token',
+    //   payload: {
+    //     token: e.target.value,}
+
+    // })
+  }
+
   return (
     <main>
       <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
@@ -25,10 +39,13 @@ const Home = () => {
           return <Category categoryProp={category} />
         })}
       </div>
-
       <h2 className="display-6 text-center mb-4">Compare plans</h2>
     </main>
   )
 }
 
-export default Home
+const mapToProps = (state) => {
+  return { ...state }
+}
+
+export default connect(mapToProps)(Home)
