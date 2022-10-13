@@ -1,5 +1,7 @@
+const localStorageToken = localStorage.getItem('token')
+
 const initialState = {
-  token: null,
+  token: localStorageToken,
 }
 
 export const SET_TOKEN = 'set_token'
@@ -14,7 +16,7 @@ export const setToken = (dispatch, value) => {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'set_token':
+    case SET_TOKEN:
       return {
         ...state,
         token: action.payload.token,

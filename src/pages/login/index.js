@@ -2,9 +2,11 @@ import { useState } from 'react'
 import useApi from '../../hooks/useApi'
 import { connect, useDispatch } from 'react-redux'
 import { SET_TOKEN } from '../../redux/reducers/authReducer'
+import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
   const dispatch = useDispatch()
+  // const navigate = useNavigate()
   console.log('>>>login props', props)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -36,6 +38,7 @@ const Login = (props) => {
             },
           }
           dispatch(action)
+
           window.location.href = '/#'
         } else {
           alert('Hatalı eposta veya şifre girildi.')
