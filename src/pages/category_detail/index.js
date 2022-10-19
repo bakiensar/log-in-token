@@ -27,7 +27,7 @@ const CategoryDetail = () => {
       {loading ? (
         <img src="loading.gif" />
       ) : (
-        <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div className="row row-cols-4 row-cols-md-3 mb-3 text-center">
           {categoryDetails.services.map((service) => {
             return <ServiceBox serviceProp={service} />
           })}

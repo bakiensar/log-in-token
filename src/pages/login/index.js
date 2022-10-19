@@ -4,6 +4,7 @@ import { connect, useDispatch } from 'react-redux'
 import { SET_TOKEN } from '../../redux/reducers/authReducer'
 import { useNavigate } from 'react-router-dom'
 
+
 const Login = (props) => {
   const dispatch = useDispatch()
   // const navigate = useNavigate()
@@ -51,7 +52,7 @@ const Login = (props) => {
   }
 
   return (
-    <main>
+    <form>
       <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
         <div className="col-12 align-self-center">
           <div className="col-12">
@@ -93,7 +94,7 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-    </main>
+    </form>
   )
 }
 
